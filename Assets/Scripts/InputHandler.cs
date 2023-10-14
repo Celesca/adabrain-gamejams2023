@@ -1,19 +1,25 @@
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.SceneManagement;
 
 public class InputHandler : MonoBehaviour
 {
     #region Variables
 
     private Camera _mainCamera;
+    public AudioSource doorSound; // Reference to the AudioSource component for the door sound
 
     #endregion
 
     private void Awake()
     {
         _mainCamera = Camera.main;
+    }
+
+    private void Start()
+    {
+        // Assuming you have an AudioSource component attached to the same GameObject
+        doorSound = GetComponent<AudioSource>();
     }
 
     public void OnClick(InputAction.CallbackContext context)
@@ -24,10 +30,21 @@ public class InputHandler : MonoBehaviour
         if (!rayHit.collider) return;
 
         var Nameclick = rayHit.collider.gameObject.name;
-        rayHit.collider.gameObject.SetActive(false);
+        var NameTag = rayHit.collider.gameObject.tag;
         Debug.Log(Nameclick);
-        var Find = GameObject.Find("DialogueBox1");
-        var myGameObject = GameObject.Find("DialogueBox1");
-        Debug.Log(Find.name);
+        Debug.Log(NameTag);
+
+        if (NameTag == "Door")
+        {
+            // Play the door sound effect
+            if (doorSound != null)
+            {
+                doorSound.Play();
+            }
+        }
+        else if (Nameclick == "Radio")
+        {
+            SceneManager.LoadSceneAsync(3);
+        }
     }
 }

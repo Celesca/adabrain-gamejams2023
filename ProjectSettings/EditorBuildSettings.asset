@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Day1.unity
     guid: 80bf20908e9101a47859fc2146f75e6e
   - enabled: 1
-    path: Assets/Scenes/Intro.unity
-    guid: 3998b105f7905cd42b037d82603e9faf
+    path: Assets/Scenes/Day1-Minigame.unity
+    guid: ebc5fdbaae4dc9d45956e25c8d3bf734
   m_configObjects: {}

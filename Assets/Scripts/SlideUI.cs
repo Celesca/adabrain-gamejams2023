@@ -29,7 +29,7 @@ public class SlideUI : MonoBehaviour
 
     void SlideUp()
     {
-        rectTransform.anchoredPosition = Vector2.Lerp(rectTransform.anchoredPosition, targetPositionUp, Time.deltaTime * 10f);
+        rectTransform.anchoredPosition = Vector2.Lerp(rectTransform.anchoredPosition, targetPositionUp, Time.deltaTime * 9f);
 
         // Check if the UI is close enough to the target position
         if (Vector2.Distance(rectTransform.anchoredPosition, targetPositionUp) < 0.1f)
@@ -40,7 +40,7 @@ public class SlideUI : MonoBehaviour
 
     void SlideDown()
     {
-        rectTransform.anchoredPosition = Vector2.Lerp(rectTransform.anchoredPosition, targetPositionDown, Time.deltaTime * 10f);
+        rectTransform.anchoredPosition = Vector2.Lerp(rectTransform.anchoredPosition, targetPositionDown, Time.deltaTime * 9f);
 
         // Check if the UI is close enough to the target position
         if (Vector2.Distance(rectTransform.anchoredPosition, targetPositionDown) < 0.1f)
